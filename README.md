@@ -1,48 +1,130 @@
 #  Java OOP Design
+* ![](challenge1.png)
 
-### Proje Kurulumu
+This project is a console-based Library Management System developed using Java and fundamental Object-Oriented Programming (OOP) principles.
+The goal is to apply inheritance, polymorphism, encapsulation, and abstraction using real-life library concepts (books, members, librarians, authors).
+🚀 Features
 
-Projeyi öncelikle forklayın ve clone edin.
-Daha sonra projeyi IntellijIDEA kullanarak açınız. README.md dosyasını dikkatli bir şekilde okuyarak istenenleri yapmaya çalışın.
-Proje sayımız ilerledikçe proje yönetimimizi kolaylaştırmak adına projelerimizi belli klasör kalıplarında saklamak işimizi kolaylaştırmak adına iyi bir alışkanlıktır.
-Örnek bir Lokasyon: Workintech/Sprint_1/Etud.
+Entity Management
 
-### Hedeflerimiz:
+Books, Members, Authors, Librarians
 
-### Library System
+Polymorphic Book Types
 
- * ![](challenge1.png)
- * Bir kütüphane sistemi modelimiz mevcut.
- * Bu modeli programlamak istiyoruz. Nesne Tabanlı bir uygulama geliştirmek zorundayız.
- * Tamamen özgür bir şekilde istediğiniz türde bir dizayn yapabilirsiniz.
- * Öğrendiğimiz konuları uygulamak hedeflenmektedir.
- * Amacımız bir Kütüphane Otomasyonu dizayn etmek. Ekteki Sınıfları ve aralarındaki ilişkileri kurarak bu sistemi nasıl dizayn edebiliriz?
- * Kendi eklemek istediğiniz özellikleri eklemekten asla çekinmeyiniz.
+Novel, StudyBook, Journal, Magazine
 
-### Sistemde mutlaka Olmasını İstediklerimiz Nelerdir?
+Library Operations
 
-* Bütün projeniz object oriented design kullanılarak tasarlanmalı ve kodlanmalı.
-* Sınıflarınız arasındaki tüm hiyaraşik yapıyı çizili bir biçimde göstermelisiniz.
-* Projenizde anlamlı paketler oluşturmalı be paketlemeye dikkat etmelisiniz.
-* Oluşturduğunuz tüm sınıflar Encapsulation kurallarına uygun yazılmalı.
-* Composition uygulaması mutlaka olmalı.
-* En az bir tane Inheritance ilişkisi kurmalısınız.
-* En az bir tane Abstract class ya da Interface tanımlayarak bunları implements/extends eden sınıflarınız olmalı.
-* Projenizde polymorphism uygulamaları olmalı ve yazdığınız metodlar olabildiğince esnek çalışmalı.
-* Sisteminizde en az bir list ve bir adet set veri yapısı kullanmalısınız ve anlamlı bir problemi çözüyor olmalı.
-* Veri saklamak için mapleri kullanmalısınız.
-* Minimum 10 sınıfınız olmalı ve bunların arasındaki ilişkiyi düzgün bir şekilde tanımlamalısınız.
+Borrowing books
 
-### Sistemde Minimum Neler Yapılabilmelidir?
-Bütün sistemi bir konsol uygulaması olarak dizayn etmelisiniz.(Scanner sınıfı kullanılabilir)
-* Sisteme yeni kitap eklenebilir.
-* Sistemden id, isim veya yazar bilgisine göre bir kitap seçilebilir
-* Sistemde var olan bir kitabın bilgileri güncellenebilir.
-* Sistemde var olan bir kitap silinebilir.
-* Sistemde var olan bir kategorideki tüm kitaplar listelenebilir.
-* Sistemde var olan bir yazarın tüm kitapları listelenebilir
-* Bir kullanıcı sistemde eğer kitap kütüphanede varsa ve başkası tarafından alınmadıysa bir kitabı ödünç alabilir. Bu durum yaşanırsa hangi kitabın hangi kullanıcıda olduğunun bilgisi tutulmalıdır.
-* Aynı şekilde kullanıcı kitap geri teslimde edebilir.
-* Sistemden bir kitap alındığında kitabı alan kullanıcıya bir fatura kesilmelidir. Kitabı geri iade ettiğinde kullanıcıya ücreti geri iade edilmelidir.
-* Kullanıcıların 5 kitap limiti olmalı ve bu kitap limitine ulaştıklarında daha fazla kitap alamamalılar.  
- 
+Returning books
+
+Member verification
+
+Late fee calculation
+
+Consistent State Updates
+
+Book status & member borrow count updated automatically
+
+Console Interaction
+
+Simple interactive menu using Scanner
+
+🧱 Project Structure
+Library/
+ ├── model/         # Entities and rules
+ │     ├── Person.java
+ │     ├── Member.java
+ │     ├── Librarian.java
+ │     ├── Author.java
+ │     ├── Book.java
+ │     ├── Novel.java
+ │     ├── StudyBook.java
+ │     ├── Journal.java
+ │     ├── Magazine.java
+ │     ├── Library.java
+ │     └── BookStatus.java
+ ├── console/
+ │     └── Main.java
+ └── README.md
+
+🧩 OOP Concepts Used
+Concept	How It’s Used
+Inheritance	Member, Author, Librarian extend Person
+Polymorphism	Each book type overrides getLendingPeriodDays()
+Abstraction	Person and Book are abstract base classes
+Encapsulation	Library manages collections safely (private fields, getters/setters)
+Enums	BookStatus defines fixed states (AVAILABLE, BORROWED)
+📥 Installation & Running
+✔ Compile
+javac Library/console/Main.java
+
+✔ Run
+java Library.console.Main
+
+📋 How to Use
+
+When the app starts, you see an interactive menu:
+
+➕ Add Book
+
+User selects book type
+
+Instance created dynamically
+
+Added to Library collection
+
+📕 Borrow Book
+
+Member is validated
+
+Available books listed
+
+Book is borrowed via issueBook()
+
+Member's borrow count updated
+
+📘 Return Book
+
+Book returned via returnBook()
+
+Late fee calculated (if any)
+
+🧍 Verify Member
+
+Checks borrow limits, restrictions, etc.
+
+🗂 Example Book Types
+Book Type	Lending Days
+StudyBook	2 days
+Novel	7 days
+Journal	5 days
+Magazine	3 days
+🎯 Purpose of the Project
+
+This system helps you practice:
+
+Abstract class design
+
+Polymorphic behavior
+
+Optional overriding
+
+Object relationships
+
+State consistency
+
+Basic console-driven user interaction
+
+📝 Notes
+
+The project runs entirely in Java SE (no frameworks).
+
+All data is stored in memory (no database).
+
+Designed for OOP learning & practice.
+
+📄 License
+
+This project is for educational purposes.
